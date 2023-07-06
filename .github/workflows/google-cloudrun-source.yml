@@ -74,10 +74,7 @@ jobs:
         with:
           credentials_json: '${{ secrets.SA_CREDS }}'
 
-      - name: Build and push Docker image
-        run: 
-          docker build gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }} .
-          docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}
+
 
       - name: Deploy to Cloud Run
         id: deploy
