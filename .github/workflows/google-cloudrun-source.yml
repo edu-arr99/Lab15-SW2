@@ -76,7 +76,7 @@ jobs:
 
       - name: Build and push Docker image
         run: 
-          docker build -t gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }} .
+          docker build gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }} .
           docker push gcr.io/${{ env.PROJECT_ID }}/${{ env.SERVICE }}
 
       - name: Deploy to Cloud Run
@@ -87,7 +87,7 @@ jobs:
           region: ${{ env.REGION }}
           # NOTE: If required, update to the appropriate source folder
           image: gcr.io/prueba-368008/labquince
-          
+
       # If required, use the Cloud Run url output in later steps
       - name: Show Output
         run: echo ${{ steps.deploy.outputs.url }}
