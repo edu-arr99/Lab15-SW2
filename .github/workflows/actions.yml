@@ -1,0 +1,28 @@
+name: Todo
+on:
+    push
+
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Python set up
+              uses: actions/setup-python@v1
+              with:
+                python-version: 3.11
+            - name: Instalar dependencias
+              run: 
+                python -m pip install --upgrade pip
+                pip install pytest pytest-cov flask
+            - name: Testear
+              run: pytest -vv
+            - name: Coverage
+              run: pytest --cov-report term --cov=.
+            - name: Super-Linter
+              uses: github/super-linter@v3
+              env:
+                DEFAULT_BRUNCH: main
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
