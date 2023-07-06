@@ -26,7 +26,7 @@ jobs:
             - name: Coverage
               run: pytest --cov-report term --cov=.
             - name: Super-Linter
-              uses: github/super-linter@v3
+              uses: github/super-linter@v4
               env:
                 DEFAULT_BRUNCH: main
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
