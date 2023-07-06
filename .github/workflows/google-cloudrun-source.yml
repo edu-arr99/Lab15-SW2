@@ -76,7 +76,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          gcloud auth activate-service-account prueba-python@prueba-368008.iam.gserviceaccount.com --key-file=${{ secrets.SA_CREDS }}
+          gcloud auth activate-service-account prueba-python@prueba-368008.iam.gserviceaccount.com --key-file='${{ secrets.SA_CREDS }}'
           docker build -t flask-api .
           gcloud auth print-access-token | docker login -u oauth2accesstoken \
            --password-stdin https://gcr.io
