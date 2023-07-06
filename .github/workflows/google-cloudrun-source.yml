@@ -76,7 +76,7 @@ jobs:
 
       - name: Build and push Docker image
         run: 
-          docker build -t flask-api .
+          docker build -t flask-api . \
           docker push flask-api
 
       - name: Deploy to Cloud Run
